@@ -1,0 +1,14 @@
+{
+  "name": "buzzdeee-autoinstall",
+  "version": "0.1.0",
+  "author": "Sebastian Reitenbach",
+  "summary": "A puppet module to manage OpenBSD autoinstall configuration files",
+  "license": "Apache-2.0",
+  "source": "https://github.com/buzzdeee/buzzdeee-autoinstall.git",
+  "project_page": "https://github.com/buzzdeee/buzzdeee-autoinstall",
+  "issues_url": "https://github.com/buzzdeee/buzzdeee-autoinstall/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

@@ -1,0 +1,115 @@
+# Note: This file is managed via Puppet.
+# Manual changes will be lost on next Puppet run.
+# Config for: <%= @name %>
+
+<%- if @kbdlayout -%>
+Choose your keyboard layout = <%= @kbdlayout %>
+<%- end -%>
+<%- if @hostname -%>
+System hostname? = <%= @hostname %>
+<%- end -%>
+<%- if @interfaces.is_a? Hash %>
+  <%- @interfaces.each do |iface, params| -%>
+Which network interface do you wish to configure? = <%= iface %>
+    <%- params.each do |k,v| -%>
+      <%- if k == 'ipv4addr' -%>
+IPv4 address for <%= iface %>? = <%= v %>
+      <%- end -%>
+      <%- if k == 'ipv4mask' -%>
+Netmask for <%= iface %>? = <%= v %>
+      <%- end -%>
+      <%- if k == 'ipv6addr' -%>
+IPv6 address for <%= iface %>? = <%= v %>
+      <%- end -%>
+      <%- if k == 'ipv6prefix' -%>
+IPv6 prefix length for <%= iface %>? = <%= "#{v.sub('/', '')}" %>
+      <%- end -%>
+    <%- end -%>
+  <%- end -%>
+<% end -%>
+<% if @ipv4defgw -%>
+Default IPv4 route? = <%= @ipv4defgw %>
+<% end -%>
+<% if @ipv6defgw -%>
+IPv6 default router? = <%= @ipv6defgw %>
+<% end -%>
+<% if @dnsdomain -%>
+DNS domain name? = <%= @dnsdomain %>
+<% end -%>
+<% if @dnsserver -%>
+DNS name servers? = <%= @dnsserver %>
+<% end -%>
+<% if @rootpassword -%>
+Password for root = <%= @rootpassword %>
+<% end -%>
+<% if @start_sshd -%>
+Start sshd(8) by default = <%= @start_sshd %>
+<% end -%>
+<% if @start_ntpd -%>
+Start ntpd(8) by default = <%= @start_ntpd %>
+  <%- if @ntp_server -%>
+NTP server? = <%= @ntp_server %>
+  <%- end -%>
+<% end -%>
+<% if @use_console -%>
+Change the default console to com0? = <%= @use_console %>
+  <%- if @console_speed -%>
+Which speed should com0 use? = <%= @console_speed %>
+  <%- end -%>
+<% end -%>
+<% if @run_xwindow -%>
+Do you expect to run the X Window System? = <%= run_xwindow %>
+<% end -%>
+<% if @start_xdm -%>
+Do you want the X Window System to be started by xdm(1)? = <%= @start_xdm %>
+<% end -%>
+<% if @setup_user -%>
+Setup a user? = <%= @setup_user %>
+<% end -%>
+<% if @timezone -%>
+What timezone are you in? = <%= @timezone %>
+<% end -%>
+<% if @rootdisk -%>
+Which disk is the root disk? = <%= @rootdisk %>
+<% end -%>
+<% if @use_duids -%>
+Use DUIDs rather than device names in fstab? = <%= @use_duids %>
+<% end -%>
+<% if @disklayout -%>
+Use (A)uto layout, (E)dit auto layout, or create (C)ustom layout? = <%= @disklayout %>
+<% end -%>
+<% if @location_of_sets -%>
+  <%- @location_of_sets.each do |key, value| -%>
+    <%- if key == 'setlocation' -%>
+Location of sets? = <%= value %>
+    <%- end -%>
+    <%- if key == 'proxyurl' -%>
+HTTP/FTP proxy URL? = <%= value %>
+    <%- end -%>
+    <%- if key == 'server' -%>
+Server? = <%= value %>
+    <%- end -%>
+    <%- if key == 'server_directory' -%>
+Server directory? = <%= value %>
+    <%- end -%>
+    <%- if key == 'set_names' -%>
+      <%- if value.is_a? Array -%>
+        <%- value.each do |v| -%>
+Set name(s)? = <%= v %>
+        <%- end -%>
+      <%- else -%>
+Set name(s)? = <%= value %>
+      <%- end -%>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
+<%- if @no_prefetch_continue -%>
+Cannot determine prefetch area. Continue without verification? = <%= @no_prefetch_continue %>
+<%- end -%>
+<%- if @checksum_failed -%>
+Checksum test for <%= @sitetgz %> failed. Continue anyway? = <%= @checksum_failed %>
+<%- end -%>
+<%- if @unverified_sets_continue -%>
+Unverified sets: <%= @sitetgz %>. Continue without verification? = <%= @unverified_sets_continue %>
+<%- end -%>
+
