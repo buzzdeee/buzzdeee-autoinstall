@@ -40,8 +40,6 @@ class autoinstall (
   $hostsdefaults,
 ) {
 
-  #$hostinfos = deep_merge($hostsdefaults, $hosts)
-
   each($hosts) |$host, $params| {
     create_resources(autoinstall::install, {$host => deep_merge($hostsdefaults, $params)})
   }

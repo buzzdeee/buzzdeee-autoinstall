@@ -7,8 +7,20 @@
   "source": "https://github.com/buzzdeee/buzzdeee-autoinstall.git",
   "project_page": "https://github.com/buzzdeee/buzzdeee-autoinstall",
   "issues_url": "https://github.com/buzzdeee/buzzdeee-autoinstall/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "OpenBSD",
+      "operatingsystemrelease": [
+        "5.6"
+      ]
+    }
+  ],
+  "tags": [
+    "OpenBSD",
+    "autoinstall"
+  ],
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"puppetlabs-stdlib"}
   ]
 }
 

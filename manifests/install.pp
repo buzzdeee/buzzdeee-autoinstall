@@ -1,3 +1,6 @@
+# Private define, do not use directly.
+# Takes care about creating the *-install.conf files.
+
 define autoinstall::install (
   $mac,
   $interfaces,
