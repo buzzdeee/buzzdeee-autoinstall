@@ -1,6 +1,6 @@
 {
   "name": "buzzdeee-autoinstall",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Sebastian Reitenbach",
   "summary": "A puppet module to manage OpenBSD autoinstall configuration files",
   "license": "Apache-2.0",

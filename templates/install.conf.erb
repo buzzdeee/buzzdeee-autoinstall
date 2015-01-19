@@ -79,26 +79,28 @@ Use DUIDs rather than device names in fstab? = <%= @use_duids %>
 Use (A)uto layout, (E)dit auto layout, or create (C)ustom layout? = <%= @disklayout %>
 <% end -%>
 <% if @location_of_sets -%>
-  <%- @location_of_sets.each do |key, value| -%>
-    <%- if key == 'setlocation' -%>
+  <%- @location_of_sets.each do |location, params| -%>
+    <%- params.each do |key, value| -%>
+      <%- if key == 'setlocation' -%>
 Location of sets? = <%= value %>
-    <%- end -%>
-    <%- if key == 'proxyurl' -%>
+      <%- end -%>
+      <%- if key == 'proxyurl' -%>
 HTTP/FTP proxy URL? = <%= value %>
-    <%- end -%>
-    <%- if key == 'server' -%>
+      <%- end -%>
+      <%- if key == 'server' -%>
 Server? = <%= value %>
-    <%- end -%>
-    <%- if key == 'server_directory' -%>
+      <%- end -%>
+      <%- if key == 'server_directory' -%>
 Server directory? = <%= value %>
-    <%- end -%>
-    <%- if key == 'set_names' -%>
-      <%- if value.is_a? Array -%>
-        <%- value.each do |v| -%>
+      <%- end -%>
+      <%- if key == 'set_names' -%>
+        <%- if value.is_a? Array -%>
+          <%- value.each do |v| -%>
 Set name(s)? = <%= v %>
-        <%- end -%>
-      <%- else -%>
+          <%- end -%>
+        <%- else -%>
 Set name(s)? = <%= value %>
+        <%- end -%>
       <%- end -%>
     <%- end -%>
   <%- end -%>

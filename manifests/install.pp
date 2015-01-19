@@ -2,11 +2,11 @@
 # Takes care about creating the *-install.conf files.
 
 define autoinstall::install (
-  $mac,
   $interfaces,
   $rootpassword,
   $wwwgroup,
   $webroot,
+  $mac = undef,
   $dnsdomain = undef,
   $dnsserver = undef,
   $kbdlayout = undef,
@@ -32,11 +32,19 @@ define autoinstall::install (
   $sitetgz = undef,
 ) {
 
-  file { "${webroot}/${mac}-install.conf":
-    owner   => 'root',
-    group   => $wwwgroup,
-    mode    => '0640',
-    content => template('autoinstall/install.conf.erb'),
+  if $mac {
+    file { "${webroot}/${mac}-install.conf":
+      owner   => 'root',
+      group   => $wwwgroup,
+      mode    => '0640',
+      content => template('autoinstall/install.conf.erb'),
+    }
+  } else {
+    file { "${webroot}/install.conf":
+      owner   => 'root',
+      group   => $wwwgroup,
+      mode    => '0640',
+      content => template('autoinstall/install.conf.erb'),
+    }
   }
-
 }
