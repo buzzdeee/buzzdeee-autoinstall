@@ -7,6 +7,8 @@ Choose your keyboard layout = <%= @kbdlayout %>
 <%- end -%>
 <%- if @hostname -%>
 System hostname? = <%= @hostname %>
+<%- else -%>
+System hostname? = <%= "#{@name.split('.')[0]}"%>
 <%- end -%>
 <%- if @interfaces.is_a? Hash %>
   <%- @interfaces.each do |iface, params| -%>
