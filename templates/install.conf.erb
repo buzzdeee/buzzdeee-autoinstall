@@ -39,7 +39,7 @@ IPv6 default router? = <%= @ipv6defgw %>
 DNS domain name? = <%= @dnsdomain %>
 <% end -%>
 <% if @dnsserver -%>
-DNS name servers? = <%= @dnsserver %>
+DNS nameservers? = <%= @dnsserver %>
 <% end -%>
 <% if @rootpassword -%>
 Password for root = <%= @rootpassword %>
@@ -67,6 +67,18 @@ Do you want the X Window System to be started by xdm(1)? = <%= @start_xdm %>
 <% end -%>
 <% if @setup_user -%>
 Setup a user? = <%= @setup_user %>
+<% end -%>
+<% if @user_fullname -%>
+Full name for user = <%= @user_fullname %>
+<% end -%>
+<% if @user_password -%>
+Password for user = <%= @user_password %>
+<% end -%>
+<% if @user_sshkey -%>
+Public ssh key for user = <%= @user_sshkey %>
+<% end -%>
+<% if @disable_rootssh -%>
+Since you set up a user, disable sshd(8) logins to root? = <%= @disable_rootssh %>
 <% end -%>
 <% if @timezone -%>
 What timezone are you in? = <%= @timezone %>
