@@ -37,18 +37,15 @@ define autoinstall::install (
 ) {
 
   if $mac {
-    file { "${webroot}/${mac}-install.conf":
-      owner   => 'root',
-      group   => $wwwgroup,
-      mode    => '0640',
-      content => template('autoinstall/install.conf.erb'),
-    }
+    $path = "${webroot}/${mac}-install.conf"
   } else {
-    file { "${webroot}/auto_install.conf":
-      owner   => 'root',
-      group   => $wwwgroup,
-      mode    => '0640',
-      content => template('autoinstall/install.conf.erb'),
-    }
+    $path = "${webroot}/auto_install.conf"
+  }
+ 
+  file { $path:
+    owner   => 'root',
+    group   => $wwwgroup,
+    mode    => '0640',
+    content => template('autoinstall/install.conf.erb'),
   }
 }
