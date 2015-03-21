@@ -98,6 +98,18 @@ Use (A)uto layout, (E)dit auto layout, or create (C)ustom layout? = <%= @disklay
       <%- if key == 'setlocation' -%>
 Location of sets? = <%= value %>
       <%- end -%>
+      <%- if key == 'already_mounted' -%>
+Is the disk partition already mounted? = <%= value %>
+      <%- end -%>
+      <%- if key == 'pathname_to_sets' -%>
+Pathname to the sets? = <%= value %>
+      <%- end -%>
+      <%- if key == 'use_sets_without_install_file' -%>
+INSTALL.<%= @architecture %> not found. Use sets found here anyway? = <%= value %>
+      <%- end -%>
+      <%- if key == 'use_sets_without_sha256_sig_file' -%>
+Directory does not contain SHA256.sig. Continue without verification? = <%= value %>
+      <%- end -%>
       <%- if key == 'proxyurl' -%>
 HTTP/FTP proxy URL? = <%= value %>
       <%- end -%>
