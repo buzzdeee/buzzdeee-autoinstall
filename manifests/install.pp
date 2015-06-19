@@ -29,6 +29,7 @@ define autoinstall::install (
   $rootdisk = undef,
   $use_duids = undef,
   $disklayout = undef,
+  $partitions = undef,
   $location_of_sets = undef,
   $no_prefetch_continue = undef,
   $checksum_failed = undef,
@@ -38,12 +39,28 @@ define autoinstall::install (
 ) {
 
   if $mac {
-    $path = "${webroot}/${mac}-install.conf"
+    $instfilepath = "${webroot}/${mac}-install.conf"
   } else {
-    $path = "${webroot}/auto_install.conf"
+    $instfilepath = "${webroot}/auto_install.conf"
+  }
+
+  if $disklayout == 'c' {
+    if $mac {
+      $partitionpath = "${webroot}/${mac}-partitions.conf"
+      $autopartitioning_url = "http://${::fqdn}/${mac}-partitions.conf"
+    } else {
+      $partitionpath = "${webroot}/partitions.conf"
+      $autopartitioning_url = "http://${::fqdn}/partitions.conf"
+    }
+    file { $partitionpath:
+      owner   => 'root',
+      group   => $wwwgroup,
+      mode    => '0640',
+      content => template('autoinstall/autoartitioning.erb'),
+    }
   }
  
-  file { $path:
+  file { $instfilepath:
     owner   => 'root',
     group   => $wwwgroup,
     mode    => '0640',

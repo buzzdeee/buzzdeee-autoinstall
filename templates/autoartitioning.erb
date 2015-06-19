@@ -1,0 +1,3 @@
+<%- @partitions.each do |partition,params| -%>
+<%= @partition %> <%= params['min'] %><%- if params['max'] -%>-<%= params['max'] %><%- end -%><%- if params['percent'] -%> <%= params['percent'] %><%- end %>
+<%- end -%>
