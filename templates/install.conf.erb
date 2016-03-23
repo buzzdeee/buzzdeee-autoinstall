@@ -86,6 +86,9 @@ What timezone are you in? = <%= @timezone %>
 <% if @rootdisk -%>
 Which disk is the root disk? = <%= @rootdisk %>
 <% end -%>
+<% if @disk_partition -%>
+Use (W)hole disk MBR, whole disk (G)PT, (O)penBSD area or (E)dit? = <%= @disk_partition -%>
+<% end -%>
 <% if @use_duids -%>
 Use DUIDs rather than device names in fstab? = <%= @use_duids %>
 <% end -%>

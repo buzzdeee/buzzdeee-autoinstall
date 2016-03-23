@@ -27,6 +27,7 @@ define autoinstall::install (
   $disable_rootssh = undef,
   $timezone = undef,
   $rootdisk = undef,
+  $disk_partition = undef,
   $use_duids = undef,
   $disklayout = undef,
   $partitions = undef,
