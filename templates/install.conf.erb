@@ -117,7 +117,7 @@ INSTALL.<%= @architecture %> not found. Use sets found here anyway? = <%= value 
 Directory does not contain SHA256.sig. Continue without verification? = <%= value %>
       <%- end -%>
       <%- if key == 'proxyurl' -%>
-HTTP/FTP proxy URL? = <%= value %>
+HTTP proxy URL? = <%= value %>
       <%- end -%>
       <%- if key == 'server' -%>
 Server? = <%= value %>
@@ -126,7 +126,7 @@ Server? = <%= value %>
 Server directory? = <%= value %>
       <%- end -%>
       <%- if key == 'server_continue_http' -%>
-Unable to connect using https. Use http instead = <%= value %>
+Unable to connect using https. Use http instead? = <%= value %>
       <%- end -%>
       <%- if key == 'set_names' -%>
         <%- if value.is_a? Array -%>
