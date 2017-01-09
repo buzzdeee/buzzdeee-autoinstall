@@ -125,6 +125,9 @@ Server? = <%= value %>
       <%- if key == 'server_directory' -%>
 Server directory? = <%= value %>
       <%- end -%>
+      <%- if key == 'server_continue_http' -%>
+Unable to connect using https. Use http instead = <%= value %>
+      <%- end -%>
       <%- if key == 'set_names' -%>
         <%- if value.is_a? Array -%>
           <%- value.each do |v| -%>
