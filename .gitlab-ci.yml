@@ -1,0 +1,38 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  RUBYSUFFIX: '23'
+
+puppet-lint:
+  script:
+    - "puppet-lint${RUBYSUFFIX} --relative --fail-on-warnings --with-filename --with-context manifests"
+  stage: test
+
+template-test:
+  script:
+    - "if [ -d templates ];then"
+    - "erb$RUBYSUFFIX -x -T '-' templates/*erb | ruby${RUBYSUFFIX} -c"
+    - "fi"
+  stage: test
+
+rubocop-test:
+  script:
+    - 'echo "inspecting following files with rubocop:"'
+    - "rubocop$RUBYSUFFIX -L"
+    - "rubocop$RUBYSUFFIX -l --only-guide-cops"
+  stage: test
+
+rake-test:
+  script:
+    - "rake$RUBYSUFFIX spec SPEC_OPTS='--format documentation'"
+  stage: test
+
+deploy:
+  script:
+    - "sudo /usr/local/bin/r10k${RUBYSUFFIX} deploy module newsyslog -v"
+  stage: deploy
+  only:
+    - master
+

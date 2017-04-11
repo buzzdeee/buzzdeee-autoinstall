@@ -60,7 +60,7 @@ define autoinstall::install (
       content => template('autoinstall/autoartitioning.erb'),
     }
   }
- 
+
   file { $instfilepath:
     owner   => 'root',
     group   => $wwwgroup,
