@@ -36,7 +36,7 @@
 # Copyright 2015 Sebastian Reitenbach, unless otherwise noted.
 #
 class autoinstall (
-  $hosts,
+  $hosts = {},
   $hostsdefaults = undef,
 ) {
 
