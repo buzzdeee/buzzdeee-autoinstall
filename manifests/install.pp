@@ -56,7 +56,7 @@ define autoinstall::install (
     file { $partitionpath:
       owner   => 'root',
       group   => $wwwgroup,
-      mode    => '0640',
+      mode    => '0644',
       content => template('autoinstall/autoartitioning.erb'),
     }
   }
@@ -64,7 +64,7 @@ define autoinstall::install (
   file { $instfilepath:
     owner   => 'root',
     group   => $wwwgroup,
-    mode    => '0640',
+    mode    => '0644',
     content => template('autoinstall/install.conf.erb'),
   }
 }
