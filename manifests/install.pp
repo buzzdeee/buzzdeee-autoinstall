@@ -30,6 +30,7 @@ define autoinstall::install (
   $disk_partition = undef,
   $use_duids = undef,
   $disklayout = undef,
+  $autopartitioning_url = undef,
   $partitions = undef,
   $location_of_sets = undef,
   $no_prefetch_continue = undef,
@@ -48,10 +49,14 @@ define autoinstall::install (
   if $disklayout == 'c' {
     if $mac {
       $partitionpath = "${webroot}/${mac}-partitions.conf"
-      $autopartitioning_url = "http://${::fqdn}/${mac}-partitions.conf"
+      unless $autopartitioning_url {
+        $autopartitioning_url = "http://${::fqdn}/${mac}-partitions.conf"
+      }
     } else {
       $partitionpath = "${webroot}/partitions.conf"
-      $autopartitioning_url = "http://${::fqdn}/partitions.conf"
+      unless $autopartitioning_url {
+        $autopartitioning_url = "http://${::fqdn}/partitions.conf"
+      }
     }
     file { $partitionpath:
       owner   => 'root',
