@@ -49,12 +49,16 @@ define autoinstall::install (
   if $disklayout == 'c' {
     if $mac {
       $partitionpath = "${webroot}/${mac}-partitions.conf"
-      unless $autopartitioning_url {
+      if $autopartitioning_url {
+        $autopartitioning_uri = $autopartitioning_url
+      } else {
         $autopartitioning_url = "http://${::fqdn}/${mac}-partitions.conf"
       }
     } else {
       $partitionpath = "${webroot}/partitions.conf"
-      unless $autopartitioning_url {
+      if $autopartitioning_url {
+        $autopartitioning_uri = $autopartitioning_url
+      } else {
         $autopartitioning_url = "http://${::fqdn}/partitions.conf"
       }
     }

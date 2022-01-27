@@ -95,8 +95,8 @@ Use DUIDs rather than device names in fstab? = <%= @use_duids %>
 <% if @disklayout -%>
 Use (A)uto layout, (E)dit auto layout, or create (C)ustom layout? = <%= @disklayout %>
 <% end -%>
-<% if @autopartitioning_url -%>
-URL to autopartitioning template for disklabel = <%= @autopartitioning_url %>
+<% if @autopartitioning_uri -%>
+URL to autopartitioning template for disklabel = <%= @autopartitioning_uri %>
 <% end -%>
 <% if @location_of_sets -%>
   <%- @location_of_sets.each do |location, params| -%>
