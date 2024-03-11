@@ -52,14 +52,14 @@ define autoinstall::install (
       if $autopartitioning_url {
         $autopartitioning_uri = $autopartitioning_url
       } else {
-        $autopartitioning_uri = "http://${::fqdn}/${mac}-partitions.conf"
+        $autopartitioning_uri = "http://${facts['networking']['fqdn']}/${mac}-partitions.conf"
       }
     } else {
       $partitionpath = "${webroot}/partitions.conf"
       if $autopartitioning_url {
         $autopartitioning_uri = $autopartitioning_url
       } else {
-        $autopartitioning_uri = "http://${::fqdn}/partitions.conf"
+        $autopartitioning_uri = "http://${facts['networking']['fqdn']}/partitions.conf"
       }
     }
     file { $partitionpath:
