@@ -146,6 +146,9 @@ Cannot determine prefetch area. Continue without verification? = <%= @no_prefetc
 <%- if @checksum_failed -%>
 Checksum test for <%= @sitetgz %> failed. Continue anyway? = <%= @checksum_failed %>
 <%- end -%>
+<%- if @buildinfo_failed -%>
+Fetching of BUILDINFO failed. Continue anyway? = <%= @buildinfo_failed %>
+<%- end -%>
 <%- if @unverified_sets_continue -%>
 Unverified sets: <%= @sitetgz %>. Continue without verification? = <%= @unverified_sets_continue %>
 <%- end -%>

@@ -35,6 +35,7 @@ define autoinstall::install (
   $location_of_sets = undef,
   $no_prefetch_continue = undef,
   $checksum_failed = undef,
+  $buildinfo_failed = undef,
   $unverified_sets_continue = undef,
   $sitetgz = undef,
   $architecture = undef,
